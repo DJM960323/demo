@@ -1,0 +1,24 @@
+server:
+  port: 8081
+  tomcat:
+    uri-encoding: UTF-8 # character encoding to use for URL decoding
+
+
+spring:
+     datasource:
+               driver-class-name: com.mysql.jdbc.Driver
+               url: jdbc:mysql://localhost:3306/base?serverTimezone=GMT%2B8&useSSL=false
+               username: root
+               password: root
+
+#mybatis
+mybatis:
+      type-aliases-package: com.example.demo.exam.entity
+      mapper-locations: classpath:com/example/demo/exam/mapper/*.xml
+mapper:
+      mappers: tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.MySqlMapper
+      not-empty: false
+      identity: MYSQL
+
+swagger:
+    enable: true
