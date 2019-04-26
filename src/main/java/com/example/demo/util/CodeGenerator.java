@@ -24,7 +24,7 @@ public class CodeGenerator {
     /**
      * 项目基础包名称，根据自己的项目修改
      */
-    public static final String BASE_PACKAGE = "com.example.demo.exam";
+    public static final String BASE_PACKAGE = "com.example.demo.code";
 
     /*生成文件地址配置*/
 

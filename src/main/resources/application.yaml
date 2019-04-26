@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
   tomcat:
     uri-encoding: UTF-8 # character encoding to use for URL decoding
 
@@ -13,8 +13,8 @@ spring:
 
 #mybatis
 mybatis:
-      type-aliases-package: com.example.demo.exam.entity
-      mapper-locations: classpath:com/example/demo/exam/mapper/*.xml
+      type-aliases-package: com.example.demo.code.entity
+      mapper-locations: classpath:com/example/demo/code/mapper/*.xml
 mapper:
       mappers: tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.MySqlMapper
       not-empty: false

@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAsync
 @EnableScheduling
 @EnableTransactionManagement
-@MapperScan("com.example.demo.exam.mapper")
+@MapperScan("com.example.demo.code.mapper")
 @SpringBootApplication
 public class DemoApplication {
 

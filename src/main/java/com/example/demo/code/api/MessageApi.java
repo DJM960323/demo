@@ -1,7 +1,7 @@
-package com.example.demo.exam.api;
+package com.example.demo.code.api;
 
-import com.example.demo.exam.entity.Message;
-import com.example.demo.exam.service.MessageService;
+import com.example.demo.code.entity.Message;
+import com.example.demo.code.service.MessageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

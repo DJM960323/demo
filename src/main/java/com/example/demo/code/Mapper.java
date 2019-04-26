@@ -1,4 +1,4 @@
-package com.example.demo.exam;
+package com.example.demo.code;
 
 import tk.mybatis.mapper.common.*;
 import tk.mybatis.mapper.common.special.InsertListMapper;

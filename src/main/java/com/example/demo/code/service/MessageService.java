@@ -1,7 +1,7 @@
-package com.example.demo.exam.service;
+package com.example.demo.code.service;
 
-import com.example.demo.exam.dao.MessageDao;
-import com.example.demo.exam.entity.Message;
+import com.example.demo.code.dao.MessageDao;
+import com.example.demo.code.entity.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

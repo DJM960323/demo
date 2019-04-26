@@ -1,9 +1,9 @@
-package com.example.demo.exam.dao;
+package com.example.demo.code.dao;
 
-import com.example.demo.exam.mapper.MessageMapper;
+import com.example.demo.code.mapper.MessageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.example.demo.exam.entity.Message;
+import com.example.demo.code.entity.Message;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;

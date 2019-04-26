@@ -1,8 +1,10 @@
-package com.example.demo.exam.api;
+package com.example.demo.code.api;
 
-import com.example.demo.exam.api.param.UserParam;
-import com.example.demo.exam.entity.User;
-import com.example.demo.exam.service.UserService;
+import com.example.demo.code.api.dto.UserDto;
+import com.example.demo.code.api.param.LoginParam;
+import com.example.demo.code.api.param.UserParam;
+import com.example.demo.code.entity.User;
+import com.example.demo.code.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +24,10 @@ public class UserApi {
     @Autowired
     private UserService userService;
 
-    /**
-     * @param userParam
-     */
-    @ApiOperation(value = "添加用户")
-    @PostMapping("/addUser")
-    public void addUser(@RequestBody UserParam userParam) {
-        userService.addUser(userParam);
+    @ApiOperation(value = "用户注册")
+    @PostMapping("/registerUser")
+    public void registerUser(@RequestBody UserParam userParam) {
+        userService.registerUser(userParam);
     }
 
     @ApiOperation(value = "注销用户")
@@ -53,5 +52,11 @@ public class UserApi {
     @PostMapping("/updateUser")
     public void updateUser(@RequestBody UserParam userParam, @RequestParam Integer id) {
         userService.updateUser(userParam, id);
+    }
+
+    @ApiOperation("用户登录")
+    @PostMapping("/UserLogin")
+    public UserDto login(@RequestBody LoginParam loginParam){
+        return userService.login(loginParam);
     }
 }
