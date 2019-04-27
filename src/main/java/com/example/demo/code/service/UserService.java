@@ -6,6 +6,8 @@ import com.example.demo.code.api.param.UserParam;
 import com.example.demo.code.dao.UserDao;
 import com.example.demo.code.entity.User;
 import com.example.demo.code.mapper.UserMapper;
+import com.example.demo.excption.ResponseCode;
+import com.example.demo.excption.WebException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,10 +31,10 @@ public class UserService {
      */
     public void registerUser(UserParam userParam){
         if(userMapper.validateUniqueName(userParam.getName()) > 0){
-            System.out.println("用户名已存在");
+            throw new WebException(ResponseCode.用户名已存在.getCode(),ResponseCode.用户名已存在.getMsg());
         }
         if(userMapper.validateUniquePhone(userParam.getPhone()) > 0){
-            System.out.println("手机号已被注册");
+            throw new WebException(ResponseCode.手机号已被注册.getCode(),ResponseCode.手机号已被注册.getMsg());
         }
         userDao.registerUser(userParam);
     }
@@ -85,7 +87,7 @@ public class UserService {
             userDto.setPhone(user.getPhone());
             System.out.println("登录成功");
         }else{
-            System.out.println("用户名和密码不匹配");
+            throw new WebException(ResponseCode.用户名或密码错误.getCode(),ResponseCode.用户名或密码错误.getMsg());
         }
         return userDto;
     }
