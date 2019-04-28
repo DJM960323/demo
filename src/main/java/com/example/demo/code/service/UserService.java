@@ -8,7 +8,11 @@ import com.example.demo.code.entity.User;
 import com.example.demo.code.mapper.UserMapper;
 import com.example.demo.excption.ResponseCode;
 import com.example.demo.excption.WebException;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -78,10 +82,14 @@ public class UserService {
      * @param loginParam
      * @return
      */
+    @Cacheable
     public UserDto login(LoginParam loginParam){
         UserDto userDto = new UserDto();
         User user = userMapper.login(loginParam.getName(),loginParam.getPassword());
         if(user != null){
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getId().toString(),loginParam.getPassword());
+            Subject subject = SecurityUtils.getSubject();
+            subject.login(token);
             userDto.setId(user.getId());
             userDto.setName(user.getName());
             userDto.setPhone(user.getPhone());
